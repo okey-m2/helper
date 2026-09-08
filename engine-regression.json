@@ -1,0 +1,225 @@
+{
+  "cases": [
+    {
+      "hand": [
+        "G7",
+        "B5",
+        "G6",
+        "R4",
+        "G4"
+      ],
+      "out": [],
+      "score": 0,
+      "expected": [
+        {
+          "kind": "discard",
+          "cards": [
+            "G4"
+          ],
+          "points": 0,
+          "probability": 0.2642857142857143
+        },
+        {
+          "kind": "discard",
+          "cards": [
+            "R4"
+          ],
+          "points": 0,
+          "probability": 0.22857142857142856
+        },
+        {
+          "kind": "discard",
+          "cards": [
+            "B5"
+          ],
+          "points": 0,
+          "probability": 0.19428571428571428
+        },
+        {
+          "points": 50,
+          "desc": "SCALA 5-6-7",
+          "cards": [
+            "G7",
+            "B5",
+            "G6"
+          ],
+          "kind": "play",
+          "probability": 0.163125
+        },
+        {
+          "kind": "discard",
+          "cards": [
+            "G7"
+          ],
+          "points": 0,
+          "probability": 0.12571428571428572
+        },
+        {
+          "kind": "discard",
+          "cards": [
+            "G6"
+          ],
+          "points": 0,
+          "probability": 0.07571428571428572
+        },
+        {
+          "points": 40,
+          "desc": "SCALA 4-5-6",
+          "cards": [
+            "B5",
+            "G6",
+            "G4"
+          ],
+          "kind": "play",
+          "probability": 0.06
+        },
+        {
+          "points": 40,
+          "desc": "SCALA 4-5-6",
+          "cards": [
+            "B5",
+            "G6",
+            "R4"
+          ],
+          "kind": "play",
+          "probability": 0.0525
+        }
+      ]
+    },
+    {
+      "hand": [
+        "R1",
+        "R4",
+        "B6",
+        "G7",
+        "G8"
+      ],
+      "out": [],
+      "score": 0,
+      "expected": [
+        {
+          "kind": "discard",
+          "cards": [
+            "R1"
+          ],
+          "points": 0,
+          "probability": 0.23857142857142857
+        },
+        {
+          "kind": "discard",
+          "cards": [
+            "R4"
+          ],
+          "points": 0,
+          "probability": 0.21428571428571427
+        },
+        {
+          "points": 60,
+          "desc": "SCALA 6-7-8",
+          "cards": [
+            "B6",
+            "G7",
+            "G8"
+          ],
+          "kind": "play",
+          "probability": 0.200625
+        },
+        {
+          "kind": "discard",
+          "cards": [
+            "B6"
+          ],
+          "points": 0,
+          "probability": 0.12857142857142856
+        },
+        {
+          "kind": "discard",
+          "cards": [
+            "G7"
+          ],
+          "points": 0,
+          "probability": 0.12142857142857143
+        },
+        {
+          "kind": "discard",
+          "cards": [
+            "G8"
+          ],
+          "points": 0,
+          "probability": 0.12
+        }
+      ]
+    },
+    {
+      "hand": [
+        "R5",
+        "B5",
+        "G5",
+        "R7",
+        "G8"
+      ],
+      "out": [
+        "R1",
+        "R2",
+        "B1",
+        "B2",
+        "G1",
+        "G2"
+      ],
+      "score": 210,
+      "expected": [
+        {
+          "points": 60,
+          "desc": "TRIS di 5",
+          "cards": [
+            "R5",
+            "B5",
+            "G5"
+          ],
+          "kind": "play",
+          "probability": 1
+        },
+        {
+          "kind": "discard",
+          "cards": [
+            "R5"
+          ],
+          "points": 0,
+          "probability": 0.9985714285714286
+        },
+        {
+          "kind": "discard",
+          "cards": [
+            "B5"
+          ],
+          "points": 0,
+          "probability": 0.9985714285714286
+        },
+        {
+          "kind": "discard",
+          "cards": [
+            "G5"
+          ],
+          "points": 0,
+          "probability": 0.9985714285714286
+        },
+        {
+          "kind": "discard",
+          "cards": [
+            "G8"
+          ],
+          "points": 0,
+          "probability": 0.9971428571428571
+        },
+        {
+          "kind": "discard",
+          "cards": [
+            "R7"
+          ],
+          "points": 0,
+          "probability": 0.9914285714285714
+        }
+      ]
+    }
+  ]
+}
