@@ -1,12 +1,35 @@
 <!doctype html>
-<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Okey Helper · Obiettivo 300</title><link rel="stylesheet" href="styles.css?v=20260908-fast5"></head>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Okey Helper · Obiettivo 300</title><link rel="stylesheet" href="styles.css?v=20260909-scores1"></head>
 <body><main class="app-shell">
 <header class="hero"><div><h1>Gioco di carte Okey</h1></div><button id="resetBtn" class="secondary">Nuova partita</button></header>
 
 <section id="resumePanel" class="panel" hidden><p id="resumeSummary"></p><button id="resumeBtn" class="secondary">Riprendi partita salvata</button><p class="muted small">Per iniziare da zero, inserisci direttamente le tue carte.</p></section>
 
 <div class="workspace"><section class="panel hand-panel"><div class="window-title">Gioco di carte Okey</div><h2>La tua mano <small id="handCount"></small></h2><div id="hand" class="hand"></div><div class="play-tray" aria-label="Area combinazione consigliata"><span class="tray-ornament" aria-hidden="true">&#10021;</span><div id="tableCards" class="table-cards"><div class="card-back">&#10021;</div><div class="card-back">&#10021;</div><div class="card-back">&#10021;</div></div><span class="tray-ornament" aria-hidden="true">&#10021;</span></div><section class="score-panel" aria-label="Avanzamento"><div class="deck" aria-hidden="true"><span>&#10021;</span></div><div class="score-content"><div class="score-top"><div><span class="muted">Punteggio</span><div><strong id="score">0</strong><span class="muted"> / 300 punti</span></div></div><span id="targetLabel">Mancano 300 punti</span></div><progress id="progress" max="300" value="0" aria-label="Punti verso l’obiettivo"></progress><div class="status-line"><span id="remainingCount"></span><span id="outCount"></span></div></div></section><div id="picker"><h3 id="pickerTitle">Inserisci le 5 carte iniziali</h3><p id="pickerHint" class="muted"></p><div id="cardGrid" class="card-grid"></div><button id="analyzeBtn" class="primary wide" hidden disabled>Riprova il calcolo</button></div></section>
-<section class="panel recommendation" aria-live="polite" aria-atomic="true"><h2 id="recommendationHeadline">Partiamo dalla tua mano</h2><p id="recommendationDetail">Seleziona le 5 carte che vedi in Metin2, rispettando numero e colore.</p><div id="moveCards" class="move-cards"></div><div id="probabilityBadge" class="probability hidden"></div><button id="applyBtn" class="primary wide" hidden>Ho eseguito la mossa nel gioco</button><button id="undoBtn" class="secondary wide" disabled>Annulla</button><p id="saveNotice" class="muted small" role="status" hidden></p></section></div>
+<div class="advice-column"><section class="panel recommendation" aria-live="polite" aria-atomic="true"><h2 id="recommendationHeadline">Partiamo dalla tua mano</h2><p id="recommendationDetail">Seleziona le 5 carte che vedi in Metin2, rispettando numero e colore.</p><div id="moveCards" class="move-cards"></div><div id="probabilityBadge" class="probability hidden"></div><button id="applyBtn" class="primary wide" hidden>Ho eseguito la mossa nel gioco</button><button id="undoBtn" class="secondary wide" disabled>Annulla</button><p id="saveNotice" class="muted small" role="status" hidden></p></section>
+<section class="panel combo-guide" aria-labelledby="comboGuideTitle">
+<h2 id="comboGuideTitle">Punti delle combinazioni</h2>
+<table><caption>Tris <span>· stesso numero, tre colori</span></caption>
+<thead><tr><th scope="col">Carte</th><th scope="col">Punti</th></tr></thead><tbody>
+<tr><th scope="row">1 + 1 + 1</th><td>20</td></tr>
+<tr><th scope="row">2 + 2 + 2</th><td>30</td></tr>
+<tr><th scope="row">3 + 3 + 3</th><td>40</td></tr>
+<tr><th scope="row">4 + 4 + 4</th><td>50</td></tr>
+<tr><th scope="row">5 + 5 + 5</th><td>60</td></tr>
+<tr><th scope="row">6 + 6 + 6</th><td>70</td></tr>
+<tr><th scope="row">7 + 7 + 7</th><td>80</td></tr>
+<tr><th scope="row">8 + 8 + 8</th><td>90</td></tr>
+</tbody></table>
+<table><caption>Scale <span>· tre numeri consecutivi</span></caption>
+<thead><tr><th scope="col">Carte</th><th scope="col">Stesso<br>colore</th><th scope="col">Colori<br>misti</th></tr></thead><tbody>
+<tr><th scope="row">1 + 2 + 3</th><td>50</td><td>10</td></tr>
+<tr><th scope="row">2 + 3 + 4</th><td>60</td><td>20</td></tr>
+<tr><th scope="row">3 + 4 + 5</th><td>70</td><td>30</td></tr>
+<tr><th scope="row">4 + 5 + 6</th><td>80</td><td>40</td></tr>
+<tr><th scope="row">5 + 6 + 7</th><td>90</td><td>50</td></tr>
+<tr><th scope="row">6 + 7 + 8</th><td>100</td><td>60</td></tr>
+</tbody></table></section>
+</div></div>
 <details class="panel"><summary>Altre mosse</summary><div id="ranking" class="ranking"></div></details>
 <details class="panel"><summary>Correggi partita</summary><label for="scoreInput">Punteggio nel gioco</label> <input id="scoreInput" type="number" min="0" max="800" step="10" value="0"><h3>Carte già uscite</h3><div id="outGrid" class="card-grid"></div></details>
 <footer><a href="https://en-wiki.metin2.gameforge.com/index.php/Okey_Card_Game" target="_blank" rel="noreferrer">Regole e punteggi · Wiki Metin2</a></footer>
