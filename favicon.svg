@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <title>Tessera Okey</title>
+  <rect x="3" y="1" width="26" height="30" rx="5" fill="#1b1b17"/>
+  <rect x="4.5" y="2.5" width="23" height="27" rx="3.5" fill="#ac1619" stroke="#e0c07d" stroke-width="1.5"/>
+  <path d="M10 9h13v4l-8 11h-5l9-11h-9z" fill="#fff5d7"/>
+</svg>
