@@ -1,0 +1,1476 @@
+[
+  {
+    "hand": [
+      "B6",
+      "G7",
+      "R8",
+      "G5",
+      "R2"
+    ],
+    "out": [
+      "B8",
+      "R7",
+      "G6",
+      "B1",
+      "B4",
+      "R3",
+      "R5",
+      "G8",
+      "R1",
+      "G3",
+      "G4",
+      "G2"
+    ],
+    "score": 150,
+    "best": 0.9999999999999998,
+    "values": [
+      {
+        "kind": "discard",
+        "cards": [
+          "G5"
+        ],
+        "points": 0,
+        "exact": 0.9999999999999998
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "R2"
+        ],
+        "points": 0,
+        "exact": 0.9999999999999998
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "R8"
+        ],
+        "points": 0,
+        "exact": 0.45714285714285713
+      },
+      {
+        "kind": "play",
+        "cards": [
+          "B6",
+          "G7",
+          "R8"
+        ],
+        "points": 60,
+        "exact": 0
+      },
+      {
+        "kind": "play",
+        "cards": [
+          "B6",
+          "G7",
+          "G5"
+        ],
+        "points": 50,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "B6"
+        ],
+        "points": 0,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "G7"
+        ],
+        "points": 0,
+        "exact": 0
+      }
+    ]
+  },
+  {
+    "hand": [
+      "R7",
+      "B6",
+      "R8",
+      "B8",
+      "R5"
+    ],
+    "out": [
+      "G2",
+      "G3",
+      "B5",
+      "R3",
+      "R1",
+      "B3",
+      "R2",
+      "G5",
+      "G1",
+      "B1",
+      "G7",
+      "G8",
+      "G6"
+    ],
+    "score": 100,
+    "best": 0.9999999999999999,
+    "values": [
+      {
+        "kind": "discard",
+        "cards": [
+          "R5"
+        ],
+        "points": 0,
+        "exact": 0.9999999999999999
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "R8"
+        ],
+        "points": 0,
+        "exact": 0.4
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "B8"
+        ],
+        "points": 0,
+        "exact": 0.4
+      },
+      {
+        "kind": "play",
+        "cards": [
+          "R7",
+          "B6",
+          "R8"
+        ],
+        "points": 60,
+        "exact": 0
+      },
+      {
+        "kind": "play",
+        "cards": [
+          "R7",
+          "B6",
+          "B8"
+        ],
+        "points": 60,
+        "exact": 0
+      },
+      {
+        "kind": "play",
+        "cards": [
+          "R7",
+          "B6",
+          "R5"
+        ],
+        "points": 50,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "R7"
+        ],
+        "points": 0,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "B6"
+        ],
+        "points": 0,
+        "exact": 0
+      }
+    ]
+  },
+  {
+    "hand": [
+      "G6",
+      "G8",
+      "R6",
+      "G5",
+      "R7"
+    ],
+    "out": [
+      "G3",
+      "R1",
+      "R2",
+      "G4",
+      "B1",
+      "G1",
+      "B2",
+      "B5",
+      "B7",
+      "B6",
+      "R3",
+      "G2",
+      "R4"
+    ],
+    "score": 100,
+    "best": 0.9999999999999999,
+    "values": [
+      {
+        "kind": "discard",
+        "cards": [
+          "G5"
+        ],
+        "points": 0,
+        "exact": 0.9999999999999999
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "G8"
+        ],
+        "points": 0,
+        "exact": 0.4
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "R6"
+        ],
+        "points": 0,
+        "exact": 0.4
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "R7"
+        ],
+        "points": 0,
+        "exact": 0.4
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "G6"
+        ],
+        "points": 0,
+        "exact": 0.19999999999999998
+      },
+      {
+        "kind": "play",
+        "cards": [
+          "G6",
+          "G8",
+          "R7"
+        ],
+        "points": 60,
+        "exact": 0
+      },
+      {
+        "kind": "play",
+        "cards": [
+          "G6",
+          "G5",
+          "R7"
+        ],
+        "points": 50,
+        "exact": 0
+      },
+      {
+        "kind": "play",
+        "cards": [
+          "G8",
+          "R6",
+          "R7"
+        ],
+        "points": 60,
+        "exact": 0
+      },
+      {
+        "kind": "play",
+        "cards": [
+          "R6",
+          "G5",
+          "R7"
+        ],
+        "points": 50,
+        "exact": 0
+      }
+    ]
+  },
+  {
+    "hand": [
+      "B6",
+      "R7",
+      "R1",
+      "B7",
+      "B1"
+    ],
+    "out": [
+      "G3",
+      "R4",
+      "B4",
+      "G4",
+      "G1",
+      "R3",
+      "G2",
+      "B5",
+      "B2",
+      "G8",
+      "B8",
+      "G6",
+      "G7",
+      "G5"
+    ],
+    "score": 140,
+    "best": 0.4,
+    "values": [
+      {
+        "kind": "discard",
+        "cards": [
+          "R1"
+        ],
+        "points": 0,
+        "exact": 0.4
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "B1"
+        ],
+        "points": 0,
+        "exact": 0.4
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "B6"
+        ],
+        "points": 0,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "R7"
+        ],
+        "points": 0,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "B7"
+        ],
+        "points": 0,
+        "exact": 0
+      }
+    ]
+  },
+  {
+    "hand": [
+      "R5",
+      "G5",
+      "G3",
+      "R4",
+      "G4"
+    ],
+    "out": [
+      "R3",
+      "B7",
+      "B6",
+      "R8",
+      "G1",
+      "R2",
+      "B2",
+      "B4",
+      "B1",
+      "G7",
+      "G8",
+      "R6"
+    ],
+    "score": 120,
+    "best": 0.39999999999999997,
+    "values": [
+      {
+        "kind": "discard",
+        "cards": [
+          "R4"
+        ],
+        "points": 0,
+        "exact": 0.39999999999999997
+      },
+      {
+        "kind": "play",
+        "cards": [
+          "R5",
+          "G3",
+          "R4"
+        ],
+        "points": 30,
+        "exact": 0
+      },
+      {
+        "kind": "play",
+        "cards": [
+          "R5",
+          "G3",
+          "G4"
+        ],
+        "points": 30,
+        "exact": 0
+      },
+      {
+        "kind": "play",
+        "cards": [
+          "G5",
+          "G3",
+          "R4"
+        ],
+        "points": 30,
+        "exact": 0
+      },
+      {
+        "kind": "play",
+        "cards": [
+          "G5",
+          "G3",
+          "G4"
+        ],
+        "points": 70,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "R5"
+        ],
+        "points": 0,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "G5"
+        ],
+        "points": 0,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "G3"
+        ],
+        "points": 0,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "G4"
+        ],
+        "points": 0,
+        "exact": 0
+      }
+    ]
+  },
+  {
+    "hand": [
+      "B5",
+      "B6",
+      "G5",
+      "G4",
+      "R7"
+    ],
+    "out": [
+      "R3",
+      "G2",
+      "R2",
+      "B2",
+      "B3",
+      "G7",
+      "B1",
+      "G1",
+      "R1",
+      "R8",
+      "G8",
+      "B8"
+    ],
+    "score": 90,
+    "best": 0.9999999999999998,
+    "values": [
+      {
+        "kind": "play",
+        "cards": [
+          "B5",
+          "B6",
+          "R7"
+        ],
+        "points": 50,
+        "exact": 0.9999999999999998
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "R7"
+        ],
+        "points": 0,
+        "exact": 0.7714285714285714
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "G4"
+        ],
+        "points": 0,
+        "exact": 0.7047619047619047
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "G5"
+        ],
+        "points": 0,
+        "exact": 0.2
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "B6"
+        ],
+        "points": 0,
+        "exact": 0.19999999999999998
+      },
+      {
+        "kind": "play",
+        "cards": [
+          "B5",
+          "B6",
+          "G4"
+        ],
+        "points": 40,
+        "exact": 0
+      },
+      {
+        "kind": "play",
+        "cards": [
+          "B6",
+          "G5",
+          "G4"
+        ],
+        "points": 40,
+        "exact": 0
+      },
+      {
+        "kind": "play",
+        "cards": [
+          "B6",
+          "G5",
+          "R7"
+        ],
+        "points": 50,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "B5"
+        ],
+        "points": 0,
+        "exact": 0
+      }
+    ]
+  },
+  {
+    "hand": [
+      "R5",
+      "R3",
+      "G5",
+      "R6",
+      "R1"
+    ],
+    "out": [
+      "B1",
+      "R2",
+      "G2",
+      "G1",
+      "B3",
+      "G3",
+      "R8",
+      "G8",
+      "R7",
+      "B6",
+      "B7",
+      "B5"
+    ],
+    "score": 90,
+    "best": 0.2,
+    "values": [
+      {
+        "kind": "discard",
+        "cards": [
+          "R1"
+        ],
+        "points": 0,
+        "exact": 0.2
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "R5"
+        ],
+        "points": 0,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "R3"
+        ],
+        "points": 0,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "G5"
+        ],
+        "points": 0,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "R6"
+        ],
+        "points": 0,
+        "exact": 0
+      }
+    ]
+  },
+  {
+    "hand": [
+      "B6",
+      "G3",
+      "G5",
+      "B2",
+      "B7"
+    ],
+    "out": [
+      "B3",
+      "R1",
+      "R3",
+      "R7",
+      "B1",
+      "R5",
+      "B8",
+      "G1",
+      "G2",
+      "G6",
+      "G7",
+      "G8",
+      "R4"
+    ],
+    "score": 100,
+    "best": 0.19999999999999998,
+    "values": [
+      {
+        "kind": "discard",
+        "cards": [
+          "B2"
+        ],
+        "points": 0,
+        "exact": 0.19999999999999998
+      },
+      {
+        "kind": "play",
+        "cards": [
+          "B6",
+          "G5",
+          "B7"
+        ],
+        "points": 50,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "B6"
+        ],
+        "points": 0,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "G3"
+        ],
+        "points": 0,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "G5"
+        ],
+        "points": 0,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "B7"
+        ],
+        "points": 0,
+        "exact": 0
+      }
+    ]
+  },
+  {
+    "hand": [
+      "B6",
+      "G3",
+      "G2",
+      "B2",
+      "R5"
+    ],
+    "out": [
+      "R4",
+      "G1",
+      "B1",
+      "B4",
+      "B3",
+      "R6",
+      "B7",
+      "B5",
+      "G7",
+      "G8",
+      "R8",
+      "B8",
+      "G5"
+    ],
+    "score": 140,
+    "best": 0.5,
+    "values": [
+      {
+        "kind": "discard",
+        "cards": [
+          "B2"
+        ],
+        "points": 0,
+        "exact": 0.5
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "B6"
+        ],
+        "points": 0,
+        "exact": 0.4
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "G3"
+        ],
+        "points": 0,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "G2"
+        ],
+        "points": 0,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "R5"
+        ],
+        "points": 0,
+        "exact": 0
+      }
+    ]
+  },
+  {
+    "hand": [
+      "R8",
+      "R6",
+      "R4",
+      "G1",
+      "R3"
+    ],
+    "out": [
+      "B4",
+      "G3",
+      "G5",
+      "R2",
+      "G2",
+      "B1",
+      "B3",
+      "R5",
+      "G8",
+      "B6",
+      "B7",
+      "B5"
+    ],
+    "score": 120,
+    "best": 0.5,
+    "values": [
+      {
+        "kind": "discard",
+        "cards": [
+          "G1"
+        ],
+        "points": 0,
+        "exact": 0.5
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "R4"
+        ],
+        "points": 0,
+        "exact": 0.4
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "R8"
+        ],
+        "points": 0,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "R6"
+        ],
+        "points": 0,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "R3"
+        ],
+        "points": 0,
+        "exact": 0
+      }
+    ]
+  },
+  {
+    "hand": [
+      "B3",
+      "R2",
+      "B2",
+      "G4",
+      "R3"
+    ],
+    "out": [
+      "R5",
+      "R4",
+      "B6",
+      "G3",
+      "G2",
+      "G8",
+      "R7",
+      "R8",
+      "B1",
+      "G1",
+      "G6",
+      "G5",
+      "G7"
+    ],
+    "score": 130,
+    "best": 0.49999999999999994,
+    "values": [
+      {
+        "kind": "discard",
+        "cards": [
+          "G4"
+        ],
+        "points": 0,
+        "exact": 0.49999999999999994
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "B2"
+        ],
+        "points": 0,
+        "exact": 0.39999999999999997
+      },
+      {
+        "kind": "play",
+        "cards": [
+          "B3",
+          "R2",
+          "G4"
+        ],
+        "points": 20,
+        "exact": 0
+      },
+      {
+        "kind": "play",
+        "cards": [
+          "B3",
+          "B2",
+          "G4"
+        ],
+        "points": 20,
+        "exact": 0
+      },
+      {
+        "kind": "play",
+        "cards": [
+          "R2",
+          "G4",
+          "R3"
+        ],
+        "points": 20,
+        "exact": 0
+      },
+      {
+        "kind": "play",
+        "cards": [
+          "B2",
+          "G4",
+          "R3"
+        ],
+        "points": 20,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "B3"
+        ],
+        "points": 0,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "R2"
+        ],
+        "points": 0,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "R3"
+        ],
+        "points": 0,
+        "exact": 0
+      }
+    ]
+  },
+  {
+    "hand": [
+      "B6",
+      "G3",
+      "G2",
+      "B2",
+      "G5"
+    ],
+    "out": [
+      "R4",
+      "G1",
+      "B1",
+      "B4",
+      "B3",
+      "R6",
+      "B7",
+      "B5",
+      "G7",
+      "G8",
+      "R8",
+      "B8"
+    ],
+    "score": 140,
+    "best": 0.5999999999999999,
+    "values": [
+      {
+        "kind": "discard",
+        "cards": [
+          "B2"
+        ],
+        "points": 0,
+        "exact": 0.5999999999999999
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "B6"
+        ],
+        "points": 0,
+        "exact": 0.5142857142857143
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "G2"
+        ],
+        "points": 0,
+        "exact": 0.5142857142857142
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "G5"
+        ],
+        "points": 0,
+        "exact": 0.5142857142857142
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "G3"
+        ],
+        "points": 0,
+        "exact": 0.42857142857142866
+      }
+    ]
+  },
+  {
+    "hand": [
+      "B3",
+      "B4",
+      "G3",
+      "G8",
+      "R1"
+    ],
+    "out": [
+      "B2",
+      "G6",
+      "B8",
+      "B7",
+      "B1",
+      "R6",
+      "R5",
+      "R4",
+      "R3",
+      "R7",
+      "R2",
+      "R8"
+    ],
+    "score": 140,
+    "best": 0.638095238095238,
+    "values": [
+      {
+        "kind": "discard",
+        "cards": [
+          "G8"
+        ],
+        "points": 0,
+        "exact": 0.638095238095238
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "R1"
+        ],
+        "points": 0,
+        "exact": 0.5619047619047619
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "B3"
+        ],
+        "points": 0,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "B4"
+        ],
+        "points": 0,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "G3"
+        ],
+        "points": 0,
+        "exact": 0
+      }
+    ]
+  },
+  {
+    "hand": [
+      "R8",
+      "R6",
+      "B1",
+      "G2",
+      "B8"
+    ],
+    "out": [
+      "R5",
+      "G4",
+      "G5",
+      "G3",
+      "B2",
+      "B3",
+      "B4",
+      "G1",
+      "R2",
+      "G8",
+      "G6",
+      "B7"
+    ],
+    "score": 130,
+    "best": 0.4714285714285715,
+    "values": [
+      {
+        "kind": "discard",
+        "cards": [
+          "B1"
+        ],
+        "points": 0,
+        "exact": 0.4714285714285715
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "G2"
+        ],
+        "points": 0,
+        "exact": 0.4
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "B8"
+        ],
+        "points": 0,
+        "exact": 0.4
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "R8"
+        ],
+        "points": 0,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "R6"
+        ],
+        "points": 0,
+        "exact": 0
+      }
+    ]
+  },
+  {
+    "hand": [
+      "R5",
+      "G3",
+      "G6",
+      "G1",
+      "R8"
+    ],
+    "out": [
+      "B2",
+      "B1",
+      "B3",
+      "R2",
+      "G4",
+      "R1",
+      "G8",
+      "B6",
+      "G7",
+      "B4",
+      "R4",
+      "R3"
+    ],
+    "score": 110,
+    "best": 0.24285714285714283,
+    "values": [
+      {
+        "kind": "discard",
+        "cards": [
+          "R5"
+        ],
+        "points": 0,
+        "exact": 0.24285714285714283
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "R8"
+        ],
+        "points": 0,
+        "exact": 0.24285714285714283
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "G3"
+        ],
+        "points": 0,
+        "exact": 0.2
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "G1"
+        ],
+        "points": 0,
+        "exact": 0.2
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "G6"
+        ],
+        "points": 0,
+        "exact": 0.19999999999999998
+      }
+    ]
+  },
+  {
+    "hand": [
+      "B6",
+      "G4",
+      "R3",
+      "R4",
+      "G2"
+    ],
+    "out": [
+      "R8",
+      "B7",
+      "R6",
+      "B1",
+      "B3",
+      "G6",
+      "B8",
+      "G7",
+      "B2",
+      "G1",
+      "R1",
+      "G8",
+      "B4"
+    ],
+    "score": 120,
+    "best": 0.4,
+    "values": [
+      {
+        "kind": "discard",
+        "cards": [
+          "B6"
+        ],
+        "points": 0,
+        "exact": 0.4
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "G2"
+        ],
+        "points": 0,
+        "exact": 0.36666666666666664
+      },
+      {
+        "kind": "play",
+        "cards": [
+          "G4",
+          "R3",
+          "G2"
+        ],
+        "points": 20,
+        "exact": 0
+      },
+      {
+        "kind": "play",
+        "cards": [
+          "R3",
+          "R4",
+          "G2"
+        ],
+        "points": 20,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "G4"
+        ],
+        "points": 0,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "R3"
+        ],
+        "points": 0,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "R4"
+        ],
+        "points": 0,
+        "exact": 0
+      }
+    ]
+  },
+  {
+    "hand": [
+      "G7",
+      "G5",
+      "B6",
+      "B3",
+      "R5"
+    ],
+    "out": [
+      "B2",
+      "R2",
+      "R1",
+      "B1",
+      "R8",
+      "G3",
+      "B8",
+      "B7",
+      "R6",
+      "G4",
+      "G2",
+      "G1"
+    ],
+    "score": 60,
+    "best": 0.33333333333333337,
+    "values": [
+      {
+        "kind": "discard",
+        "cards": [
+          "B3"
+        ],
+        "points": 0,
+        "exact": 0.33333333333333337
+      },
+      {
+        "kind": "play",
+        "cards": [
+          "G7",
+          "G5",
+          "B6"
+        ],
+        "points": 50,
+        "exact": 0.3142857142857143
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "G5"
+        ],
+        "points": 0,
+        "exact": 0.2
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "B6"
+        ],
+        "points": 0,
+        "exact": 0.2
+      },
+      {
+        "kind": "play",
+        "cards": [
+          "G7",
+          "B6",
+          "R5"
+        ],
+        "points": 50,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "G7"
+        ],
+        "points": 0,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "R5"
+        ],
+        "points": 0,
+        "exact": 0
+      }
+    ]
+  },
+  {
+    "hand": [
+      "R7",
+      "B8",
+      "R8",
+      "G4",
+      "B1"
+    ],
+    "out": [
+      "B3",
+      "R3",
+      "R4",
+      "G5",
+      "B4",
+      "R1",
+      "B2",
+      "B6",
+      "G6",
+      "R6",
+      "R2",
+      "B5"
+    ],
+    "score": 100,
+    "best": 0.40476190476190477,
+    "values": [
+      {
+        "kind": "discard",
+        "cards": [
+          "B1"
+        ],
+        "points": 0,
+        "exact": 0.40476190476190477
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "G4"
+        ],
+        "points": 0,
+        "exact": 0.4
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "R7"
+        ],
+        "points": 0,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "B8"
+        ],
+        "points": 0,
+        "exact": 0
+      },
+      {
+        "kind": "discard",
+        "cards": [
+          "R8"
+        ],
+        "points": 0,
+        "exact": 0
+      }
+    ]
+  }
+]

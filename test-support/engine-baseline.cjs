@@ -136,7 +136,7 @@ function rolloutPolicy(handSet,outSet,score,rng){
     }
 
     // Early/mid rollout: only cash reasonable combos.
-    const minAccept = deck.length>10 ? 60 : deck.length>4 ? 50 : 10;
+    const minAccept = deck.length>10 ? 70 : deck.length>4 ? 50 : 10;
     legal.sort((a,b)=>b.points-a.points);
     if(legal.length && legal[0].points>=minAccept){
       const play=legal[0];
@@ -210,96 +210,12 @@ function evaluatePlay(combo){
 }
 
 
-function rankMovesLegacy(hand, out, score, iterations=700){
+function rankMoves(hand, out, score, iterations=700){
   state.hand=new Set(hand); state.out=new Set(out); state.score=score;
   if(score>=300) return [];
   const moves=combos(hand).map(c=>({...c,kind:"play",probability:evaluatePlay(c)}));
   if(remainingCards().length) for(const card of hand)
     moves.push({kind:"discard",cards:[card],points:0,probability:simulateDiscard(card,iterations)});
-  for(const m of moves)m.exact=m.kind==='play'&&score+m.points>=300;
   return moves.sort((a,b)=>b.probability-a.probability || b.points-a.points);
 }
-// Exact stochastic dynamic programming. A draw is averaged BEFORE the next
-// decision is maximized: the solver never gets to see future deck order.
-class ExactSearchLimitError extends Error {}
-function createExactSolver(cards, nodeLimit=Infinity){
- if(cards.length>24||new Set(cards).size!==cards.length||cards.some(c=>CARD_INDEX[c]===undefined))throw new TypeError('Invalid solver cards');
- const n=cards.length, stride=2**n, scoreStride=stride*stride;
- // Up to 18! is an exact JS integer. Memo keys are also below 2^53:
- // at most 24 card bits, 24 deck bits, and 5 bits of points still needed.
- const factorial=[1];for(let i=1;i<=18;i++)factorial[i]=factorial[i-1]*i;
- const index=new Map(cards.map((c,i)=>[c,i]));
- const triples=Array.from({length:n},()=>[]), allTriples=[];
- const memo=new Map(), upperMemo=new Map([[0,0]]);
- let nodes=0;
- for(let a=0;a<n;a++)for(let b=a+1;b<n;b++)for(let c=b+1;c<n;c++){
-  const result=comboScore([cards[a],cards[b],cards[c]]);
-  if(!result)continue;
-  const t={mask:(1<<a)|(1<<b)|(1<<c),points:result.points/10};
-  allTriples.push(t);triples[a].push(t);triples[b].push(t);triples[c].push(t);
- }
- allTriples.sort((a,b)=>b.points-a.points);
- function mask(cs){return cs.reduce((m,c)=>m|(1<<index.get(c)),0);}
- function count(m){let c=0;while(m){m&=m-1;c++;}return c;}
- // Optimistic bound: maximum disjoint scoring triples, ignoring hand size.
- // It may prove failure, but is never used as a claim of attainable success.
- function upper(m){
-  const cached=upperMemo.get(m);if(cached!==undefined)return cached;
-  const bit=m&-m,i=31-Math.clz32(bit);
-  let best=upper(m^bit);
-  for(const t of triples[i])if((m&t.mask)===t.mask)best=Math.max(best,t.points+upper(m^t.mask));
-  upperMemo.set(m,best);return best;
- }
- function winningOrders(h,d,need){
-  const draws=count(d),certain=factorial[draws];
-  if(need<=0)return certain;
-  if(count(h|d)<3 || Math.floor(count(h|d)/3)*10<need)return 0;
-  const key=h+d*stride+need*scoreStride,cached=memo.get(key);
-  if(cached!==undefined)return cached;
-  if(++nodes>nodeLimit)throw new ExactSearchLimitError('Exact search budget exceeded');
-  if(upper(h|d)<need){memo.set(key,0);return 0;}
-  let best=0;
-  if(d && count(h)<5){
-   for(let rest=d;rest;rest&=rest-1){const bit=rest&-rest;best+=winningOrders(h|bit,d^bit,need);}
-  }else{
-   for(const t of allTriples)if((h&t.mask)===t.mask){
-    best=Math.max(best,winningOrders(h^t.mask,d,need-t.points));if(best===certain)break;
-   }
-   if(best!==certain && d)for(let rest=h;rest;rest&=rest-1){
-    best=Math.max(best,winningOrders(h^(rest&-rest),d,need));if(best===certain)break;
-   }
-  }
-  memo.set(key,best);return best;
- }
- function value(h,d,need){
-  if(count(d)>18)throw new RangeError('Too many draws for exact integer counts');
-  return winningOrders(h,d,need)/factorial[count(d)];
- }
- return {mask,value,upper,stats:()=>({nodes,states:memo.size,bounds:upperMemo.size})};
-}
-
-function rankMoves(hand,out,score,iterations=700){
- if(!Array.isArray(hand)||!Array.isArray(out)||hand.length>5||
-    [...hand,...out].some(c=>CARD_INDEX[c]===undefined)||
-    new Set([...hand,...out]).size!==hand.length+out.length||
-    !Number.isInteger(score)||score<0||score>800||score%10!==0||
-    !Number.isInteger(iterations)||iterations<1)throw new TypeError('Invalid game state or simulation count');
- if(score>=300)return [];
- const unseen=ALL_CARDS.filter(c=>!hand.includes(c)&&!out.includes(c));
- if(unseen.length&&hand.length<5)throw new TypeError('Complete the hand before requesting advice');
- if(unseen.length>12)return rankMovesLegacy(hand,out,score,iterations);
- const solver=createExactSolver([...hand,...unseen],unseen.length>10?1000000:Infinity),h=solver.mask(hand),d=solver.mask(unseen);
- const moves=combos(hand).map(c=>({...c,kind:'play'}));
- if(d)for(const c of hand)moves.push({kind:'discard',cards:[c],points:0});
- try{for(const m of moves){
-   m.probability=solver.value(h^solver.mask(m.cards),d,(300-score-m.points)/10);
-   m.exact=true;
-  }
- }catch(error){
-  // Never mix an unfinished exact search with heuristic action values.
-  if(error instanceof ExactSearchLimitError)return rankMovesLegacy(hand,out,score,iterations);
-  throw error;
- }
- return moves.sort((a,b)=>b.probability-a.probability || b.points-a.points);
-}
-if(typeof module!=="undefined") module.exports={comboScore,combos,rankMoves,rolloutPolicy,mulberry32,createExactSolver};
+if(typeof module!=="undefined") module.exports={comboScore,combos,rankMoves,rolloutPolicy,mulberry32};

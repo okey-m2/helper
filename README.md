@@ -28,7 +28,13 @@ Pubblica dalla root del branch configurato per Pages. Devono essere presenti ins
 
 ## Strategia e limiti
 
-Il motore confronta combinazioni e scarti mediante continuazioni Monte Carlo sulle carte non viste, assumendo un ordine casuale uniforme. La strategia delle continuazioni è euristica: le percentuali misurano il successo nelle simulazioni, non una probabilità calibrata né una strategia matematicamente ottimale. Differenze piccole possono essere rumore di campionamento. Non è stato misurato un miglioramento del tasso di vittoria rispetto alla versione precedente.
+Il motore massimizza la probabilità di raggiungere almeno 300 punti, assumendo pescate uniformi fra le carte non viste. Con **al massimo 10 carte da pescare**, confronta esattamente tutte le mosse e le continuazioni: la scelta è ottimale per questo obiettivo. Con 11–12 carte tenta lo stesso calcolo entro un milione di stati; se non termina, usa la strategia stimata. Con più carte usa le simulazioni. **Non è garantita l'ottimalità delle scelte stimate nelle fasi iniziali.**
+
+Il calcolo esatto conta gli ordini vincenti con numeri interi, considerando l'incertezza delle pescate prima delle decisioni successive. Un limite superiore sui punti delle combinazioni disgiunte elimina soltanto i rami in cui vincere è impossibile. Una ricerca interrotta non viene mai presentata come esatta.
+
+L'interfaccia mostra «Scelta ottimale» e una percentuale soltanto per i risultati esatti (o una combinazione che raggiunge subito 300). La percentuale presuppone scelte successive ottimali; non garantisce la riuscita della singola partita. Le altre mosse sono indicate come «Consiglio stimato», senza esporre le frequenze delle continuazioni euristiche come probabilità calibrate.
+
+Sul campione di sviluppo di 500 mazzi identici, le successive varianti hanno ottenuto 70,2% (precedente), 71,2%, 73,2%, 73,6% e **75,2%**. Sono stati corretti tutti i 18 errori noti e il confronto indipendente dei nuovi finali con al massimo 7 carte ha rilevato **0 errori su 2.242 decisioni**. Risultati e limiti della verifica separata sono descritti in [VALIDATION.md](VALIDATION.md).
 
 Il successo è qualsiasi punteggio >= 300, incluso l’oro. Il calcolo avviene in un Web Worker e viene annullato se correggi lo stato. Non vengono suggerite mosse finché non hai inserito tutte le carte pescate. A mazzo esaurito vengono considerate solo le combinazioni disponibili.
 
@@ -40,10 +46,21 @@ Con Node.js, senza dipendenze:
 
 ```sh
 node engine.test.cjs
+node strategy.test.cjs
 node app.test.cjs
+node worker.test.cjs
 ```
 
-I test verificano punteggi, soglia, fine mazzo e transizioni dell’interfaccia con un DOM simulato. Non sostituiscono la verifica grafica in un browser.
+I test verificano punteggi, soglia, fine mazzo, i 18 errori segnalati, confronti con un risolutore indipendente, gestione del limite di ricerca, worker e transizioni dell'interfaccia con un DOM simulato. Non sostituiscono la verifica grafica in un browser.
+
+Per ripetere il confronto su mazzi identici con la versione precedente congelata in `test-support/engine-baseline.cjs`:
+
+```sh
+node strategy-benchmark.cjs 500 0 risultati.json
+node strategy-benchmark.cjs 1000 500 verifica-separata.json
+```
+
+Il secondo comando usa 1.000 mazzi diversi dai primi 500. I benchmark seguono ogni consiglio fino a 300 punti o alla fine della partita; non comunicano al motore l'ordine delle pescate. Le percentuali sono stime sotto questo modello, non statistiche degli utenti reali.
 
 Gli URL degli asset includono una versione per evitare di mescolare HTML nuovo con CSS o JavaScript precedenti in cache. Aggiornare la versione nei riferimenti di index.html, app.js e worker.js a ogni pubblicazione che modifica questi file.
 
@@ -51,4 +68,4 @@ All’apertura il tavolo parte sempre vuoto: nessuna mano predefinita o ripristi
 
 Le cinque posizioni della mano sono fisse: giocare, scartare o correggere una carta svuota solo il suo slot. Le nuove carte riempiono i posti vuoti da sinistra a destra; puoi toccare uno slot vuoto per scegliere una posizione diversa. Salvataggio e annullamento conservano le posizioni. I vecchi salvataggi vengono convertiti mantenendo l’ordine disponibile.
 
-Il motore precalcola i punteggi delle terne e riutilizza tabelle di consultazione durante le simulazioni. Il numero di simulazioni e la strategia rimangono invariati. Confronto locale Node.js su tre mani: 9.421/6.339/2.943 ms prima, 538/317/118 ms dopo; classifiche e probabilità identiche. Tempi indicativi, dipendenti dal dispositivo.
+Il motore precalcola i punteggi delle terne e riutilizza tabelle durante le simulazioni. Il numero di simulazioni resta 700 per scarto e 1.600 per combinazione; nelle continuazioni, la soglia iniziale per incassare una combinazione è stata ridotta da 70 a 60 punti dopo il confronto dei benchmark. I tempi dipendono dallo stato e dal dispositivo; il worker può essere annullato correggendo la partita.

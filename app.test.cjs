@@ -112,3 +112,15 @@ elements.get('resumeBtn').onclick();
 assert.equal(vm.runInContext('JSON.stringify(game.slots)',holeContext),JSON.stringify(['G7','B1',null,'G2','B8']));
 assert.equal(vm.runInContext('needed()',holeContext),1);
 console.log('Fixed-slot checks passed: non-adjacent play, selected draw, middle discard, correction, undo and saved holes.');
+// A heuristic rollout frequency must not be presented as a calibrated chance.
+slotRun("cancel();moves=[{kind:'discard',cards:['G7'],points:0,probability:0.248,exact:false}];render()");
+assert.equal(elements.get('probabilityBadge').textContent,'Consiglio stimato');
+assert(!elements.get('ranking').children[0].textContent.includes('%'));
+slotRun("moves=[{kind:'discard',cards:['G7'],points:0,probability:1,exact:true}];render()");
+assert.equal(elements.get('probabilityBadge').textContent,'Scelta ottimale · 300+ punti: 100%');
+assert(elements.get('probabilityBadge').title.includes('scelte successive ottimali'));
+assert(elements.get('ranking').children[0].textContent.includes('100%'));
+assert.equal(slotRun('probabilityText(0.999999)'),'>99,9%');
+assert.equal(slotRun('probabilityText(0.000001)'),'<0,1%');
+assert.equal(slotRun('probabilityText(0.4)'),'40,0%');
+console.log('Advice labels distinguish exact probabilities from heuristic advice.');

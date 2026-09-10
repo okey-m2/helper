@@ -38,6 +38,11 @@ function unseen(){return CARDS.filter(c=>!game.hand.includes(c)&&!game.out.inclu
 function needed(){return Math.min(5-game.hand.length,unseen().length);}
 function card(c,click){const b=document.createElement(click?'button':'div');b.className='card';b.dataset.color=c[0];b.innerHTML=`<span class="num">${c.slice(1)}</span><span class="color-name">${COLORS[c[0]]}</span>`;if(click){b.type='button';b.onclick=click;b.setAttribute('aria-label',`${c.slice(1)} ${COLORS[c[0]]}`);}return b;}
 function title(m){return m.kind==='play'?`Gioca queste 3 carte · +${m.points} punti`:'Scarta questa carta';}
+function probabilityText(p){
+ if(p===0)return '0%';if(p===1)return '100%';
+ if(p<0.001)return '<0,1%';if(p>0.999)return '>99,9%';
+ return `${(p*100).toFixed(1).replace('.',',')}%`;
+}
 function render(){
  const missing=needed(), done=game.score>=300, best=moves[0];
  $('resumePanel').hidden=!savedSession;
@@ -78,16 +83,19 @@ function render(){
  $('tableCards').replaceChildren(...(best?.cards||[]).map(c=>card(c)));
  for(let i=best?.cards.length||0;i<3;i++){const back=document.createElement('div');back.className='card-back';back.textContent='\u2725';$('tableCards').append(back);}
  $('probabilityBadge').classList.toggle('hidden',!best);
- if(best)$('probabilityBadge').textContent=`Probabilità stimata di 300+ punti: ${(best.probability*100).toFixed(1)}%`;
+ if(best){
+  $('probabilityBadge').textContent=best.exact?`Scelta ottimale · 300+ punti: ${probabilityText(best.probability)}`:'Consiglio stimato';
+  $('probabilityBadge').title=best.exact?'Probabilità con pescate casuali e scelte successive ottimali.':'La scelta è stimata: non è garantito che sia ottimale.';
+ }
  $('applyBtn').hidden=!best||done;
  $('applyBtn').textContent=best?.kind==='discard'?'Fatto, ho scartato':'Fatto, ho giocato';
  $('ranking').replaceChildren();
- for(const m of moves){const row=document.createElement('div');row.className='rank-item';row.textContent=`${m.kind==='play'?'Gioca':'Scarta'} ${m.cards.map(c=>`${c.slice(1)} ${COLORS[c[0]]}`).join(' + ')}${m.points?` (+${m.points})`:''} · ${(m.probability*100).toFixed(1)}%`;$('ranking').append(row);}
+ for(const m of moves){const row=document.createElement('div');row.className='rank-item';row.textContent=`${m.kind==='play'?'Gioca':'Scarta'} ${m.cards.map(c=>`${c.slice(1)} ${COLORS[c[0]]}`).join(' + ')}${m.points?` (+${m.points})`:''}${m.exact?` · ${probabilityText(m.probability)}`:''}`;$('ranking').append(row);}
 }
 function analyze(){
  if(needed()||game.hand.length<3||game.score>=300)return;
  cancel();busy=true;render();
- try{worker=new Worker('worker.js?v=20260908-fast5');const current=worker;
+ try{worker=new Worker('worker.js?v=20260910-strategy1');const current=worker;
  worker.onmessage=({data})=>{if(worker!==current)return;cancel();if(data.error){showError();return;}moves=data.moves;render();if(!moves.length){$('recommendationHeadline').textContent='Nessuna combinazione disponibile';$('recommendationDetail').textContent=`Il mazzo è esaurito. Puoi terminare nel gioco con ${game.score} punti.`;}};
  worker.onerror=()=>{if(worker!==current)return;cancel();showError();};
  worker.postMessage({...game,id:Date.now()});
